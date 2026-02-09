@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-    cron('55 11 * * 1-5')
+    cron('05 12 * * 1-5')
     }
 
     stages {
@@ -28,7 +28,7 @@ pipeline {
                                  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnQiOiJiNmNhZGQwNS1lMzQxLTNmMTctYjU1Zi00OTM0MTI4MWQ4MmEiLCJhY2NvdW50SWQiOiI1ZWU0ZjM3YjFmYjJjYTBhYzU0OTNhMjMiLCJpc1hlYSI6ZmFsc2UsImlhdCI6MTc3MDM4MzgxOSwiZXhwIjoxNzcwNDcwMjE5LCJhdWQiOiI5M0IzN0ZCNjQ3ODI0QjA5QTZGRDBDNTk4MTU2MjVDQyIsImlzcyI6ImNvbS54cGFuZGl0LnBsdWdpbnMueHJheSIsInN1YiI6IjkzQjM3RkI2NDc4MjRCMDlBNkZEMEM1OTgxNTYyNUNDIn0.w5mcWGHM-k06DyjaBuWu34wX13i3rKDPWlmGjRckHb0"
                                  "https://xray.cloud.getxray.app/api/v1/export/cucumber?keys=POEI2-863"'
                     }
-                }
+        }
     }
 
 
