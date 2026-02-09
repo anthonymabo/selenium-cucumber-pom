@@ -26,14 +26,14 @@ pipeline {
                                 echo 'creation du token...'
                                   def token = bat(script: """
                                                           curl -s -H "Content-Type: application/json" -X POST ^
-                                                          -d "{\\"client_id\\": \\"${clientId}\\", \\"client_secret\\": \\"${clientSecret}\\"}" ^
+                                                          -d "{\\"client_id\\": \\"${clientId}\\", \\"client_secret\\": \\"${clientSecret}\\"}"
                                                           https://xray.cloud.getxray.app/api/v2/authenticate
                                                       """, returnStdout: true).trim().replaceAll('"', '')
 
                                 echo 'download test...'
                                   bat """
-                                                          curl -H "Authorization: Bearer ${token}" ^
-                                                          "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=${testKey}" ^
+                                                          curl -H "Authorization: Bearer ${token}"
+                                                          "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=${testKey}"
                                                           -o src/test/resources/features/xray_features.zip
                                                           """
 
@@ -41,10 +41,6 @@ pipeline {
                                    bat """ powershell Expand-Archive -Path Téléchargements
                                                           -DestinationPath C:\Dev\tp sauce demo\selenium-cucumber-pom\src\test\resources\features
                                        """
-
-                            }
-
-
         }
 
         stage('Build & Test') {
