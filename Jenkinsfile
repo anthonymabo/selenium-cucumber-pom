@@ -15,9 +15,9 @@ pipeline {
 
                     bat """
                         curl -H "Authorization: Bearer ${token}" "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=${params.TEST_PLAN_KEY}" -o f.zip
-
-                        powershell Expand-Archive -Path f.zip -DestinationPath src/test/resources/features -Force
                     """
+                    bat 'tar -xf features.zip -C src/test/resources/features'
+                    bat 'del features.zip'
                 }
             }
         }
