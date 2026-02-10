@@ -4,7 +4,7 @@ pipeline {
        string(name: 'SELENIUM_BROWSER', defaultValue:'CHROME')
        string(name: 'TEST_PLAN_KEY', defaultValue: 'POEI2-654')
     }
-    triggers { cron('05 12 * * 1-5') }
+    triggers { cron('10 00 * * 1-5') }
 
     stages {
         stage('Export Xray') {
@@ -14,7 +14,7 @@ pipeline {
 
 
                     bat """
-                        curl -H "Authorization: Bearer ${token}" "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=${params.TEST_PLAN_KEY}" -o f.zip
+                        curl -H "Authorization: Bearer ${token}" "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=${params.TEST_PLAN_KEY}" -o features.zip
                     """
                     bat 'tar -xf features.zip -C src/test/resources/features'
                     bat 'del features.zip'
