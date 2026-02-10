@@ -18,7 +18,7 @@ pipeline {
                 echo "Exportation des features pour : ${params.TEST_PLAN_KEY}"
 
                 bat """
-                    curl -H "Content-Type: application/json" -X GET -H "Authorization: Bearer ${TOKEN}" "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=${params.TEST_PLAN_KEY}" --output features.zip
+                curl -f -H "Authorization: Bearer %TOKEN%" "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=%TEST_PLAN_KEY%" --output features.zip
                     """
 
                 bat 'if not exist "src/test/resources/features" mkdir "src/test/resources/features"'
