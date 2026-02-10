@@ -19,15 +19,11 @@ pipeline {
 
                 bat """
                     curl -H "Content-Type: application/json" -X GET -H "Authorization: Bearer ${TOKEN}" "https://xray.cloud.getxray.app/api/v2/export/cucumber?keys=${params.TEST_PLAN_KEY}" --output features.zip
+                    """
 
-                    if not exist "src\\test\\resources\\features" mkdir "src\\test\\resources\\features"
-
-                    @echo off
-                    echo Extraction du fichier ZIP...
-                    powershell Expand-Archive -Path features.zip -DestinationPath src/test/resources/features -Force
-
-                    del features.zip
-                """
+                bat 'if not exist "src/test/resources/features" mkdir "src/test/resources/features"'
+                bat 'tar -xf features.zip -C src/test/resources/features'
+                bat 'del features.zip'
             }
         }
 
