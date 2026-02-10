@@ -38,16 +38,16 @@ pipeline {
 
              }
         }
+    }
 
-        post {
+    post {
 
-                success {
-                    echo 'Tests exécutés avec succès 🎉'
-                }
+            success {
+                echo 'Tests exécutés avec succès 🎉'
+            }
 
-                failure {
-                    echo 'Des tests ont échoué ❌'
-                }
-        }
+            failure {
+                echo 'Des tests ont échoué ❌'
+            }
     }
 }
