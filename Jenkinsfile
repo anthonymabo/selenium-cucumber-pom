@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
        string(name: 'SELENIUM_BROWSER', defaultValue:'CHROME')
-       string(name: 'TEST_PLAN_KEY', defaultValue: 'POEI2-707')
+       string(name: 'TEST_PLAN_KEY', defaultValue: 'POEI2-654')
     }
 
     triggers { cron('10 00 * * 1-5') }
